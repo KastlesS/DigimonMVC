@@ -18,7 +18,7 @@ function router (){
             "buscar"=>"search.php",
             "borrar"=>"delete.php",
             "editar"=>"edit.php"
-    ],
+        ],
     ];
     $tabla= $_REQUEST["tabla"];
     if (!isset($tablas[$tabla])) return"views/404.php"; 
