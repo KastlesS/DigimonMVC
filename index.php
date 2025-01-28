@@ -1,5 +1,5 @@
 <?php
-ob _start();
+ob_start();
 require_once("router/router.php");
 require_once("views/layout/head.php");
 
