@@ -8,6 +8,13 @@ class userModel{
         $this->conexion = db::conexion();
     }
 
+    public function insertUser(array $user):?int{
+        $sql = "INSERT INTO users(nick, password) VALUES (:nick, :password)";
+        $sentencia = $this->conexion->prepare($sql);
+        $user = [":nick"=>$user["nick"], ":password"=>$user["password"]];
+        $sentencia->execute($user); 
+    }
+
     public function listAllUsers():array{
         $sql = "SELECT * FROM users ";
         $sentencia = $this->conexion->prepare($sql);
@@ -23,5 +30,18 @@ class userModel{
         $sentencia->execute($datos);
         $usuario = $sentencia->fetch(PDO::FETCH_OBJ);
         return $usuario;
+    }
+
+    public function deleteUser($id): bool{
+        $sql = "DELETE FROM users WHERE id = :id";
+        try {
+            $sentencia = $this->conexion->prepare($sql);
+            $datos = [":id"=>$id];
+            $sentencia->execute($datos);
+            return ($sentencia->rowCount()<=0)?false:true;
+        } catch (Exception $e) {    
+            echo "Excepcion: ", $e->getMessage(), "<br>";
+            return false;
+        }
     }
 }
