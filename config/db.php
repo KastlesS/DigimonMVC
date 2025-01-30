@@ -4,7 +4,7 @@ class db
   const HOST = "localhost";
   const DBNAME = "digimon";
   const USER = "root";
-  const PASSWORD = ""; // Evidentemente adapta los valores
+  const PASSWORD = ""; 
 
   static public function conexion()
   {

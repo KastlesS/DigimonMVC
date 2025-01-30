@@ -12,7 +12,22 @@ class userModel{
         $sql = "INSERT INTO users(nick, password) VALUES (:nick, :password)";
         $sentencia = $this->conexion->prepare($sql);
         $user = [":nick"=>$user["nick"], ":password"=>$user["password"]];
-        $sentencia->execute($user); 
+        $res = $sentencia->execute($user); 
+        return ($res==true)?$this->conexion->lastInsertId():null;
+    }
+
+    
+    public function login(string $usuario,string $password): ?stdClass{
+        $sentencia = $this->conexion->prepare("SELECT * FROM users WHERE usuario=:usuario and password=:contra");
+        $arrayDatos = [
+            ":usuario" => $usuario,
+            ":contra"=>$password
+        ];
+        $resultado = $sentencia->execute($arrayDatos);
+        if (!$resultado) return null;
+        $user = $sentencia->fetch(PDO::FETCH_OBJ);
+        //fetch duevelve el objeto stardar o false si no hay persona
+        return ($user == false) ? null : $user;
     }
 
     public function listAllUsers():array{

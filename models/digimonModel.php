@@ -38,4 +38,18 @@ class DigimonModel{
         }
     }
 
+    public function insertDigimon(array $array):?int{
+        $sql = "INSERT INTO digimon(nombre, ataque, defensa, tipo, nivel, imagen) VALUES (:nombre, :ataque, :defensa, :tipo, :nivel, :imagen)";
+        $sentencia = $this->conexion->prepare($sql);
+        $datos = [
+            ":nombre"=>$array["nombre"],
+            ":ataque"=>$array["ataque"],
+            ":defensa"=>$array["defensa"],
+            ":tipo"=>$array["tipo"],
+            ":nivel"=>$array["nivel"],
+            ":imagen"=>$array["imagen"],
+        ];
+        $res = $sentencia->execute($datos);
+        return ($res==true)?$this->conexion->lastInsertId():null;
+    }
 }
