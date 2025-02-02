@@ -1,0 +1,20 @@
+.container {
+    background-color: #0580bb;
+    max-height: 300px;
+    min-height: 200px;
+    width: 100%;
+  }
+  .container .navbar-brand > img {
+    width: 150px;
+    height: 100px;
+  }
+  .container .button {
+    padding: 20px;
+    margin: 10px;
+    border: 3px solid;
+    border-radius: 30px;
+  }
+  .container .button:hover {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  }

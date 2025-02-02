@@ -1,7 +1,8 @@
+<head><link rel="stylesheet" href="../../assets/css/header.css"></head>
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+      <img src="" alt="Bootstrap">
     </a>
     <button type="button" class="btn btn-primary btn-lg">Large button</button>
   </div>

@@ -18,7 +18,7 @@ class userModel{
 
     
     public function login(string $usuario,string $password): ?stdClass{
-        $sentencia = $this->conexion->prepare("SELECT * FROM users WHERE usuario=:usuario and password=:contra");
+        $sentencia = $this->conexion->prepare("SELECT * FROM users WHERE nick=:usuario and password=:contra");
         $arrayDatos = [
             ":usuario" => $usuario,
             ":contra"=>$password

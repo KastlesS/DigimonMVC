@@ -6,7 +6,7 @@
 // aquí no usamos MVC ya que es muy básica la acción
   if (isset ($_POST["usuario"],$_POST["password"])){
     //podríamos usar el controlador pero como sólo es hacer una consulta
-      require_once "models/userModel.php";
+      require_once "models/usersModel.php";
       $userModel= new userModel();
       $usuario=$userModel->login($user, $password);
       if ($usuario!=null){// Usuario correcto

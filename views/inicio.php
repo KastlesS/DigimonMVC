@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user'])) {
-    header('location:/views/login.php');
+if (!isset($_SESSION['usuario'])) {
+    header('location:login.php');
     exit();
 }
 
-$user = $_SESSION['user'];
+$user = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +18,19 @@ $user = $_SESSION['user'];
 </head>
 <body>
     <div class="buttons">
-        <button onclick="window.location.href='/index.php?tabla=user&accion=listar'">Ver Usuarios</button>
-        <button onclick="window.location.href='/index.php?tabla=digimon&accion=listar'">Ver Digimones</button>
+        <?php
+            if($user->admin == 1){
+                ?>
+                <button class="buttons--boton">Listar Usuarios</button>
+                <button class="buttons--boton">Dar alta a Digimon</button>
+                <button class="buttons--boton">Definir Evoluciones</button>
+                <button class="buttons--boton">Ver Digimones</button>
+                <button class="buttons--boton">Borrar Digimones</button>
+                <?php
+            }else{
+                
+            }
+        ?>
     </div>
 </body>
 </html>
